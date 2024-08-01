@@ -11,4 +11,17 @@ ascr
 ipt://window.opener.location='alert(1)'">Click Me!</a>
     <a href="calculator://">Click Math!</a>
 </body>
+<body>
+    <button id="sendMessageButton">Send Message to Parent</button>
+
+    <script 
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            if (opener) {
+                opener.postMessage('cypher', opener.location.origin);
+            } else {
+                console.error('No opener found');
+            }
+        });
+    </script>
+</body>
 </html>
