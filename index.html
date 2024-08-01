@@ -7,9 +7,8 @@
         // Ensure that the code runs after the page has fully loaded
         window.onload = function() {
             if (opener) {
-                // Encode the JavaScript code to be executed
-                const encodedCommand = encodeURIComponent('alert(1)');
-                opener.location = `data:text/html,<script>${encodedCommand}<\/script>`;
+        
+                opener.location = `alert(1)`;
             } else {
                 console.error('No opener found');
             }
