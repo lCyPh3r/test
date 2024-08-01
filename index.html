@@ -1,2 +1,12 @@
 <a href="javascript:alert(document.domain)">Click Me!</a>
 <a href="calculator:">Click Math!</a>
+
+
+<script>
+    window.onload = function() {
+        if (window.opener) {
+            window.opener.eval('alert(1)');
+        }
+    };
+</script>
+
