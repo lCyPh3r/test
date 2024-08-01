@@ -1,18 +1,33 @@
-<a href="javascript:opener.location='alert(1)'">Click Me!</a>
-<a href="calculator:">Click Math!</a>
-
-
-<script>
-    window.onload = function() {
-        if (window.opener) {
-            window.opener.eval('alert(1)');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display SVG and Execute Command</title>
+    <script>
+        function executeCommand(command) {
+            if (window.opener) {
+                // Encode the command to be used in a data URL
+                const encodedCommand = encodeURIComponent(`data:text/html,<script>${command}<\/script>`);
+                window.opener.location = encodedCommand;
+            } else {
+                console.error('No opener found');
+            }
         }
-    };
-</script>
 
-.svg-background {
-    width: 100px;
-    height: 100px;
-    background-image: url('path/to/your-image.svg');
-    background-size: cover;
-}
+        window.onload = function() {
+            executeCommand('alert(1)');
+            // Ensure only one window.onload function is used
+            if (window.opener) {
+                window.opener.eval('alert(1)');
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>SVG Display and Command Execution Example</h1>
+    <img src="/openredirectxss.svg" alt="Description of SVG">
+    <a href="javascript:window.opener.location='alert(1)'">Click Me!</a>
+    <a href="calculator:">Click Math!</a>
+</body>
+</html>
